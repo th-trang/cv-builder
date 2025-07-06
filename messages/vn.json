@@ -1,0 +1,51 @@
+{
+  "welcome": "Chào mừng",
+  "resumeDetails": "Chi tiết sơ yếu lý lịch",
+  
+  "Details": {
+    "name": "Nguyễn Vũ Thùy Trang",
+    "occupation": "Full-Stack Web Developer",
+    "summary": "Giới thiệu bản thân",
+    "experience": "Kinh nghiệm làm việc",
+    "education": "Học vấn",
+    "computer-science": "Khoa học máy tính",
+    "vietnamese-german-university": "Trường Đại học Việt Đức",
+    "techstack": "Công nghệ sử dụng",
+    "languages": "Ngôn ngữ",
+    "projects": "Dự án",
+    "certifications": "Chứng chỉ",
+    "skills": "Kỹ năng"
+  },
+
+  "Button": {
+    "save": "Lưu",
+    "edit": "Chỉnh sửa",
+    "delete": "Xóa",
+    "cancel": "Hủy",
+    "confirm": "Xác nhận",
+    "close": "Đóng",
+    "add": "Thêm",
+    "update": "Cập nhật",
+    "create": "Tạo mới",
+    "search": "Tìm kiếm",
+    "filter": "Lọc",
+    "clear": "Đặt lại",
+    "previous": "Trước đó",
+    "submit": "Gửi đi",
+    "login": "Đăng nhập",
+    "logout": "Đăng xuất",
+    "send": "Gửi",
+    "download": "Tải xuống",
+    "upload": "Tải lên",
+    "export": "Xuất"
+  },
+
+  "Location": {
+    "binh-duong": "Bình Dương, Việt Nam",
+    "ho-chi-minh": "Thành phố Hồ Chí Minh, Việt Nam",
+    "berlin": "Berlin, Đức",
+    "munich": "München, Đức",
+    "bremen": "Bremen, Đức",
+    "frankfurt": "Frankfurt, Đức"
+  }
+}

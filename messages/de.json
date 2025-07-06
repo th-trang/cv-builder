@@ -1,0 +1,51 @@
+{
+  "welcome": "Willkommen",
+  "resumeDetails": "Lebenslauf Details",
+
+  "Details" : {
+    "name": "Nguyen Vu Thuy Trang",
+    "occupation": "Full-Stack-Webentwicklerin",
+    "summary": "Zusammenfassung",
+    "experience": "Berufserfahrung",
+    "education": "Bildung",
+    "computer-science": "Informatik",
+    "vietnamese-german-university": "Vietnamesisch-Deutsche Universität",
+    "techstack": "Technologiestack",
+    "languages": "Sprachen",
+    "projects": "Projekte",
+    "skills": "Fähigkeiten",
+    "certifications": "Zertifikate"
+  },
+
+  "Button": {
+    "save": "Speichern",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "close": "Schließen",
+    "add": "Hinzufügen",
+    "update": "Aktualisieren",
+    "create": "Erstellen",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "clear": "Zurücksetzen",
+    "previous": "Vorherige",
+    "submit": "Absenden",
+    "login": "Anmelden",
+    "logout": "Ausloggen",
+    "send": "Senden",
+    "download": "Herunterladen",
+    "upload": "Uploaden",
+    "export": "Exportieren"
+  },
+
+  "Location": {
+    "binh-duong": "Binh Duong, Vietnam",
+    "ho-chi-minh": "Ho Chi Minh Stadt, Vietnam",
+    "berlin": "Berlin, Deutschland",
+    "munich": "München, Deutschland",
+    "bremen": "Bremen, Deutschland",
+    "frankfurt": "Frankfurt, Deutschland"
+  }
+}

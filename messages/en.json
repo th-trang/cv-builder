@@ -1,0 +1,51 @@
+{
+  "welcome": "Welcome",
+  "resumeDetails": "Resume Details",
+  
+  "Details": {
+    "name": "Nguyen Vu Thuy Trang",
+    "occupation": "Full-Stack Web Developer",
+    "summary": "Summary",
+    "experience": "Experience",
+    "education": "Education",
+    "computer-science": "Computer Science",
+    "vietnamese-german-university": "Vietnamese-German University",
+    "techstack": "Tech Stack",
+    "lang": "Languages",
+    "projects": "Projects",
+    "certifications": "Certifications",
+    "skills": "Skills"
+  },
+
+  "Button": {
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "close": "Close",
+    "add": "Add",
+    "update": "Update",
+    "create": "Create",
+    "search": "Search",
+    "filter": "Filter",
+    "clear": "Reset",
+    "previous": "Previous",
+    "submit": "Submit",
+    "login": "Login",
+    "logout": "Logout",
+    "send": "Send",
+    "download": "Download",
+    "upload": "Upload",
+    "export": "Export"
+  },
+
+  "Location": {
+    "binh-duong": "Binh Duong, Vietnam",
+    "ho-chi-minh": "Ho Chi Minh City, Vietnam",
+    "berlin": "Berlin, Germany",
+    "munich": "Munich, Germany",
+    "bremen": "Bremen, Germany",
+    "frankfurt": "Frankfurt, Germany"
+  }
+}
