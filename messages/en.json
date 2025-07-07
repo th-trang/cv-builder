@@ -14,7 +14,14 @@
     "lang": "Languages",
     "projects": "Projects",
     "certifications": "Certifications",
-    "skills": "Skills"
+    "skills": "Skills",
+    "proficiency": "Proficiency",
+    "vietnamese": "Vietnamese",
+    "english": "English",
+    "german": "German",
+    "native": "Native",
+    "intermediate": "Intermediate",
+    "elementary": "Elementary"
   },
 
   "Button": {

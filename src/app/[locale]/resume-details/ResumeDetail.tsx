@@ -6,6 +6,7 @@ import TechStackComponent from "@/app/shared-components/TechStackComponent";
 import { techStackData } from "@/data/techStackData";
 import { useTranslations } from "next-intl";
 import React from "react";
+import LanguageComponent from "@/app/shared-components/LanguageComponent";
 
 const ResumeDetails = () => {
     const t = useTranslations("Details")
@@ -19,7 +20,7 @@ const ResumeDetails = () => {
                     <h1 className="text-5xl font-bold mb-4 text-[#0173ef]">{t('name')}</h1>
                     <h3 className="text-2xl font-bold mb-4 text-[#FF6600]">{t('occupation')}</h3>
 
-                    <div className="contacct-info flex flex-row gap-4">
+                    <div className="contact-info flex flex-row gap-4 mb-5">
                         <div className="phone flex flex-row items-center gap-2">
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -38,6 +39,17 @@ const ResumeDetails = () => {
                             </span>
                             <h4 className="text-base font-normal">{process.env.NEXT_PUBLIC_EMAIL}</h4>
                         </div>
+                        <div className="location flex flex-row items-center gap-2">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 13.43C13.7231 13.43 15.12 12.0331 15.12 10.31C15.12 8.58687 13.7231 7.19 12 7.19C10.2769 7.19 8.88 8.58687 8.88 10.31C8.88 12.0331 10.2769 13.43 12 13.43Z" stroke="#008cf6" strokeWidth="1.5" />
+                                    <path d="M3.61995 8.49C5.58995 -0.169998 18.42 -0.159997 20.38 8.5C21.53 13.58 18.37 17.88 15.6 20.54C13.59 22.48 10.41 22.48 8.38995 20.54C5.62995 17.88 2.46995 13.57 3.61995 8.49Z" stroke="#008cf6" strokeWidth="1.5" />
+                                </svg>
+                            </span>
+                            <h4 className="text-base font-normal">{process.env.NEXT_PUBLIC_LOCATION}</h4>
+                        </div>
+                    </div>
+                    <div className="socials flex flex-row gap-7">
                         <div className="linked-in flex flex-row items-center gap-2">
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -53,14 +65,20 @@ const ResumeDetails = () => {
                             </span>
                             <a href={process.env.NEXT_PUBLIC_LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="text-base font-normal hover:text-blue-800">{process.env.NEXT_PUBLIC_LINKEDIN_URL}</a>
                         </div>
-                        <div className="location flex flex-row items-center gap-2">
+                        <div className="github flex flex-row items-center gap-2">
                             <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M12 13.43C13.7231 13.43 15.12 12.0331 15.12 10.31C15.12 8.58687 13.7231 7.19 12 7.19C10.2769 7.19 8.88 8.58687 8.88 10.31C8.88 12.0331 10.2769 13.43 12 13.43Z" stroke="#008cf6" strokeWidth="1.5" />
-                                    <path d="M3.61995 8.49C5.58995 -0.169998 18.42 -0.159997 20.38 8.5C21.53 13.58 18.37 17.88 15.6 20.54C13.59 22.48 10.41 22.48 8.38995 20.54C5.62995 17.88 2.46995 13.57 3.61995 8.49Z" stroke="#008cf6" strokeWidth="1.5" />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="none">
+                                    <g clipPath="url(#clip0_910_44)">
+                                        <path d="M24.0199 0C10.7375 0 0 10.8167 0 24.1983C0 34.895 6.87988 43.9495 16.4241 47.1542C17.6174 47.3951 18.0545 46.6335 18.0545 45.9929C18.0545 45.4319 18.0151 43.509 18.0151 41.5055C11.3334 42.948 9.94198 38.6209 9.94198 38.6209C8.86818 35.8164 7.27715 35.0956 7.27715 35.0956C5.09022 33.6132 7.43645 33.6132 7.43645 33.6132C9.86233 33.7735 11.1353 36.0971 11.1353 36.0971C13.2824 39.7827 16.7422 38.7413 18.1341 38.1002C18.3328 36.5377 18.9695 35.456 19.6455 34.8552C14.3163 34.2942 8.70937 32.211 8.70937 22.9161C8.70937 20.2719 9.66321 18.1086 11.1746 16.4261C10.9361 15.8253 10.1008 13.3409 11.4135 10.0157C11.4135 10.0157 13.4417 9.3746 18.0146 12.4996C19.9725 11.9699 21.9916 11.7005 24.0199 11.6982C26.048 11.6982 28.1154 11.979 30.0246 12.4996C34.5981 9.3746 36.6262 10.0157 36.6262 10.0157C37.9389 13.3409 37.1031 15.8253 36.8646 16.4261C38.4158 18.1086 39.3303 20.2719 39.3303 22.9161C39.3303 32.211 33.7234 34.2539 28.3544 34.8552C29.2296 35.6163 29.9848 37.0583 29.9848 39.3421C29.9848 42.5871 29.9454 45.1915 29.9454 45.9924C29.9454 46.6335 30.383 47.3951 31.5758 47.1547C41.12 43.9491 47.9999 34.895 47.9999 24.1983C48.0392 10.8167 37.2624 0 24.0199 0Z" fill="#008cf6" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_910_44">
+                                            <rect width="48" height="48" fill="white" />
+                                        </clipPath>
+                                    </defs>
                                 </svg>
                             </span>
-                            <h4 className="text-base font-normal">{process.env.NEXT_PUBLIC_LOCATION}</h4>
+                            <a href={process.env.NEXT_PUBLIC_GITHUB_URL} target="_blank" rel="noopener noreferrer" className="text-base font-normal hover:text-blue-800">{process.env.NEXT_PUBLIC_GITHUB_URL}</a>
                         </div>
                     </div>
                 </div>
@@ -77,14 +95,14 @@ const ResumeDetails = () => {
                     technologies like Angular, NextJS, and Tailwind CSS. Enthusiastic about working in dynamic environments that prioritize creativity and efficient user
                     experience, I am eager to contribute to projects that leverage modern web frameworks, to enhance and optimize web applications.
                 </p>
-            </div>            
-            
+            </div>
+
             {/* Work Experience Section */}
             <MultiTimelineComponent
                 title={t('experience')}
                 items={[
                     {
-                        timePeriod: "10/2024 - Present",
+                        timePeriod: "10/2024 - 05/2025",
                         location: l('ho-chi-minh'),
                         detailTitle: "Fresher Developer",
                         detailSubtitle: "WEALLNET",
@@ -185,6 +203,36 @@ const ResumeDetails = () => {
                 title={t('techstack')}
                 technologies={techStackData}
                 layout="categorized"
+            />
+
+            <LanguageComponent
+                title={t('lang')}
+                items={[
+                    {
+                        name: t('vietnamese'),
+                        proficiency: "Native",
+                        languageColor: "text-violet-600",
+                        firstColor: "from-violet-500",
+                        secondColor: "to-violet-600",
+                        width: "w-full"
+                    },
+                    {
+                        name: t('english'),
+                        proficiency: "C1",
+                        languageColor: "text-green-600",
+                        firstColor: "from-green-500",
+                        secondColor: "to-green-600",
+                        width: "w-5/6"
+                    },
+                    {
+                        name: t('german'),
+                        proficiency: "A2",
+                        languageColor: "text-orange-600",
+                        firstColor: "from-orange-500",
+                        secondColor: "to-orange-600",
+                        width: "w-2/7"
+                    }
+                ]}
             />
         </div>
     )

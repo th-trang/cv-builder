@@ -14,7 +14,14 @@
     "languages": "Sprachen",
     "projects": "Projekte",
     "skills": "Fähigkeiten",
-    "certifications": "Zertifikate"
+    "certifications": "Zertifikate",
+    "proficiency": "Kompetenz",
+    "vietnamese": "Vietnamesisch",
+    "english": "Englisch",
+    "german": "Deutsch",
+    "native": "Muttersprache",
+    "intermediate": "Mittelstufe",
+    "elementary": "Grundkenntnisse"
   },
 
   "Button": {

@@ -14,7 +14,14 @@
     "languages": "Ngôn ngữ",
     "projects": "Dự án",
     "certifications": "Chứng chỉ",
-    "skills": "Kỹ năng"
+    "skills": "Kỹ năng",
+    "proficiency": "Trình độ",
+    "vietnamese": "Tiếng Việt",
+    "english": "Tiếng Anh",
+    "german": "Tiếng Đức",
+    "native": "Thuần thục",
+    "intermediate": "Trung cấp",
+    "elementary": "Cơ bản"
   },
 
   "Button": {
