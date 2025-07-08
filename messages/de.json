@@ -2,6 +2,13 @@
   "welcome": "Willkommen",
   "resumeDetails": "Lebenslauf Details",
 
+  "Home": {
+    "welcomeMessage": "Willkommen zum Profil von",
+    "name": "NGUYEN VU THUY TRANG",
+    "occupation": "Full-Stack-Webentwicklerin",
+    "buttonText": "Entdecke Meine Reise"
+  },
+
   "Details" : {
     "name": "Nguyen Vu Thuy Trang",
     "occupation": "Full-Stack-Webentwicklerin",
@@ -11,7 +18,7 @@
     "computer-science": "Informatik",
     "vietnamese-german-university": "Vietnamesisch-Deutsche Universität",
     "techstack": "Technologiestack",
-    "languages": "Sprachen",
+    "lang": "Sprachen",
     "projects": "Projekte",
     "skills": "Fähigkeiten",
     "certifications": "Zertifikate",

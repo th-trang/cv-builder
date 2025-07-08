@@ -1,7 +1,7 @@
 import createIntlMiddleware from 'next-intl/middleware';
 import { NextRequest, NextResponse } from 'next/server';
 
-const locales = ['en', 'vn', 'de']
+const locales = ['en', 'vi', 'de']
 
 const publicPages = [
     "/",
@@ -31,7 +31,7 @@ export default function middleware(request: NextRequest) {
         return NextResponse.redirect(url);
     }
 
-    if (request.nextUrl.pathname === "/en" || request.nextUrl.pathname === "/vn" || request.nextUrl.pathname === "/de") {
+    if (request.nextUrl.pathname === "/en" || request.nextUrl.pathname === "/vi" || request.nextUrl.pathname === "/de") {
         const url = request.nextUrl.clone();
         url.pathname = "/welcome";
         return NextResponse.redirect(url);

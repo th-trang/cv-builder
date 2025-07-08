@@ -2,6 +2,13 @@
   "welcome": "Welcome",
   "resumeDetails": "Resume Details",
   
+  "Home": {
+    "welcomeMessage": "Welcome to the profile of",
+    "name": "NGUYEN VU THUY TRANG",
+    "occupation": "Full-Stack Web Developer",
+    "buttonText": "Discover My Journey"
+  },
+  
   "Details": {
     "name": "Nguyen Vu Thuy Trang",
     "occupation": "Full-Stack Web Developer",

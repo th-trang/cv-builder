@@ -2,9 +2,11 @@
 
 // Update the import path to match the actual file location and name
 import Button from "@/app/shared-components/ButtonComponent"
+import LanguageSwitcher from "@/app/shared-components/LanguageSwitcher"
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 // Star component for animated background
 const Star = ({ style }: { style: React.CSSProperties }) => (
@@ -35,16 +37,24 @@ const FloatingParticle = ({ delay, left, top }: { delay: number; left: number; t
   />
 );
 
-export default function Home() {
+export default function Home({ params }: { params: Promise<{ locale: string }> }) {
   const [showButton, setShowButton] = useState(false);
   const [stars, setStars] = useState<React.CSSProperties[]>([]);
-  const [particles, setParticles] = useState<Array<{left: number; top: number}>>([]);
+  const [particles, setParticles] = useState<Array<{ left: number; top: number }>>([]);
   const [isClient, setIsClient] = useState(false);
+  const [currentLocale, setCurrentLocale] = useState("en");
+  
   const router = useRouter();
+  const t = useTranslations("Home");
 
   useEffect(() => {
     // Set client-side flag to avoid hydration mismatch
     setIsClient(true);
+
+    // Get locale from params
+    params.then(({ locale }) => {
+      setCurrentLocale(locale);
+    });
 
     // Generate random stars only on client side
     const generateStars = () => {
@@ -86,7 +96,10 @@ export default function Home() {
   }, []);
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden bg-black">
+      {/* Dark overlay for deeper background */}
+      <div className="absolute inset-0 bg-black/80 z-1"></div>
+
       {/* Animated Starfield Background */}
       {isClient && (
         <div className="absolute inset-0 z-0">
@@ -100,9 +113,9 @@ export default function Home() {
       {isClient && (
         <div className="absolute inset-0 z-10">
           {particles.map((particle, index) => (
-            <FloatingParticle 
-              key={index} 
-              delay={index * 0.2} 
+            <FloatingParticle
+              key={index}
+              delay={index * 0.2}
               left={particle.left}
               top={particle.top}
             />
@@ -110,18 +123,29 @@ export default function Home() {
         </div>
       )}
 
-      {/* Galaxy Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/30 to-indigo-900/40 z-5"></div>
+      {/* Galaxy Gradient Background - Darker */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-blue-900/15 to-indigo-900/20 z-5"></div>
 
-      {/* Radial Glow Effect */}
+      {/* Radial Glow Effect - Reduced opacity for darker look */}
       <div className="absolute inset-0 z-10">
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-1/3 left-1/4 w-48 h-48 bg-cyan-500/10 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-purple-500/5 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-1/3 left-1/4 w-48 h-48 bg-cyan-500/5 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
       {/* Main Content */}
       <div className="relative z-20 flex flex-col items-center justify-center min-h-screen p-8 py-20 gap-16">
+        {/* Language Button - Top Right */}
+        {isClient && (
+          <motion.div
+            className="absolute top-8 right-8 z-30"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2, duration: 0.8, ease: "easeOut" }}
+          >
+            <LanguageSwitcher currentLocale={currentLocale} variant="floating" />
+          </motion.div>
+        )}
         <motion.div
           className="welcome-words flex flex-col items-center justify-center text-center w-full max-w-6xl"
           initial={{ y: -100, opacity: 0 }}
@@ -130,15 +154,15 @@ export default function Home() {
         >
           {/* Glass morphism container for text */}
           <div className="backdrop-blur-sm bg-white/5 border border-white/10 rounded-3xl p-12 shadow-2xl w-full">
-            <motion.h1 
+            <motion.h1
               className="text-4xl md:text-6xl font-light text-white font-nunito tracking-wide mb-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}
             >
-              Welcome to the profile of
+              {t('welcomeMessage')}
             </motion.h1>
-            <motion.h1 
+            <motion.h1
               className="font-bold italic text-5xl md:text-7xl lg:text-8xl bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -147,9 +171,9 @@ export default function Home() {
                 textShadow: '0 0 30px rgba(139, 69, 199, 0.5)',
               }}
             >
-              NGUYEN VU THUY TRANG
+              {t('name')}
             </motion.h1>
-            
+
             {/* Animated subtitle */}
             <motion.p
               className="text-lg md:text-xl text-gray-300 mt-8 font-light tracking-wider"
@@ -157,20 +181,20 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 1 }}
             >
-              Full-Stack Web Developer
+              {t('occupation')}
             </motion.p>
           </div>
         </motion.div>
-        
+
         {showButton && (
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ 
-              duration: 1.2, 
+            transition={{
+              duration: 1.2,
               ease: "easeOut",
               type: "spring",
-              stiffness: 100 
+              stiffness: 100
             }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -179,9 +203,11 @@ export default function Home() {
             {/* Glowing button effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full blur opacity-30 animate-pulse"></div>
             <Button
-              btnName={"Discover My Journey"}
+              btnName={t('buttonText')}
               color="text-white text-2xl md:text-3xl font-medium tracking-wide"
-              onClick={() => { router.push(`/resume-details`); }}
+              onClick={() => { 
+                router.push(`/${currentLocale}/resume-details`); 
+              }}
             />
           </motion.div>
         )}

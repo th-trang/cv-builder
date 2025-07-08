@@ -2,6 +2,13 @@
   "welcome": "Chào mừng",
   "resumeDetails": "Chi tiết sơ yếu lý lịch",
   
+  "Home": {
+    "welcomeMessage": "Chào mừng đến với hồ sơ của",
+    "name": "NGUYỄN VŨ THÙY TRANG",
+    "occupation": "Full-Stack Web Developer",
+    "buttonText": "Khám Phá Hành Trình Của Tôi"
+  },
+  
   "Details": {
     "name": "Nguyễn Vũ Thùy Trang",
     "occupation": "Full-Stack Web Developer",
@@ -11,7 +18,7 @@
     "computer-science": "Khoa học máy tính",
     "vietnamese-german-university": "Trường Đại học Việt Đức",
     "techstack": "Công nghệ sử dụng",
-    "languages": "Ngôn ngữ",
+    "lang": "Ngôn ngữ",
     "projects": "Dự án",
     "certifications": "Chứng chỉ",
     "skills": "Kỹ năng",

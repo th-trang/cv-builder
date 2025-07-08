@@ -1,14 +1,23 @@
 'use client'
 
-import Button from "@/app/shared-components/ButtonComponent"
+import LanguageSwitcher from "@/app/shared-components/LanguageSwitcher"
 import { useTranslations } from "next-intl"
 import { useRouter } from "next/navigation"
-import React from "react"
+import React, { useState, useEffect } from "react"
 import ResumeDetails from "./ResumeDetail"
+import ExportPdfComponent from "@/app/shared-components/ExportPdfComponent"
 
-const ResumePage = () => {
+const ResumePage = ({ params }: { params: Promise<{ locale: string }> }) => {
     const b = useTranslations("Button")
     const router = useRouter();
+    const [currentLocale, setCurrentLocale] = useState("en");
+
+    useEffect(() => {
+        // Get locale from params
+        params.then(({ locale }) => {
+            setCurrentLocale(locale);
+        });
+    }, [params]);
 
     return (
         <div className="min-h-screen bg-black relative">
@@ -17,7 +26,7 @@ const ResumePage = () => {
 
             {/* Floating Header */}
             <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-[#2c2ccc] backdrop-blur-xl border border-transparent shadow-2xl rounded-full">
-                <div className="px-6 py-3">
+                <div className="px-5 py-2">
                     <div className="flex items-center gap-4">
                         {/* Back button */}
                         <div
@@ -38,7 +47,7 @@ const ResumePage = () => {
                         </div>
 
                         {/* Edit button */}
-                        <div className="group relative cursor-pointer transition-all duration-500 ease-out overflow-hidden">
+                        {/* <div className="group relative cursor-pointer transition-all duration-500 ease-out overflow-hidden">
                             <div className="flex items-center hover:bg-[#3d3dd6] rounded-xl transition-all duration-300">
                                 <div className="p-2.5 flex items-center justify-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -51,10 +60,10 @@ const ResumePage = () => {
                                     <span className="text-white text-xs font-medium whitespace-nowrap pr-2">Edit</span>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
                         {/* Save button */}
-                        <div className="group relative cursor-pointer transition-all duration-500 ease-out overflow-hidden">
+                        {/* <div className="group relative cursor-pointer transition-all duration-500 ease-out overflow-hidden">
                             <div className="flex items-center hover:bg-[#3d3dd6] rounded-xl transition-all duration-300">
                                 <div className="p-2.5 flex items-center justify-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 25 24" fill="none">
@@ -67,46 +76,13 @@ const ResumePage = () => {
                                     <span className="text-white text-xs font-medium whitespace-nowrap pr-2">Save</span>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
                         {/* Export button */}
-                        <div className="group relative cursor-pointer transition-all duration-500 ease-out overflow-hidden">
-                            <div className="flex items-center hover:bg-[#3d3dd6] rounded-xl transition-all duration-300">
-                                <div className="p-2.5 flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none">
-                                        <path d="M13 11L21.2 2.80005" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M22 6.8V2H17.2" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M11 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22H15C20 22 22 20 22 15V13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
-                                </div>
-                                <div className="w-0 group-hover:w-12 mb-1 overflow-hidden transition-all duration-500 ease-out">
-                                    <span className="text-white text-xs font-medium whitespace-nowrap pr-2">Export</span>
-                                </div>
-                            </div>
-                        </div>
+                        <ExportPdfComponent />
 
                         {/*Language button*/}
-                        <div className="group relative cursor-pointer transition-all duration-500 ease-out overflow-hidden">
-                            <div className="flex items-center hover:bg-[#3d3dd6] rounded-xl transition-all duration-300">
-                                <div className="p-2.5 flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path d="M19.06 18.67L16.92 14.4L14.78 18.67" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M15.17 17.9099H18.69" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M16.92 22.0001C14.12 22.0001 11.84 19.73 11.84 16.92C11.84 14.12 14.11 11.8401 16.92 11.8401C19.72 11.8401 22 14.11 22 16.92C22 19.73 19.73 22.0001 16.92 22.0001Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M5.02 2H8.94C11.01 2 12.01 3.00002 11.96 5.02002V8.94C12.01 11.01 11.01 12.01 8.94 11.96H5.02C3 12 2 11 2 8.92999V5.01001C2 3.00001 3 2 5.02 2Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M9.00995 5.84985H4.94995" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M6.96997 5.16992V5.84991" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M7.98994 5.83997C7.98994 7.58997 6.61994 9.00995 4.93994 9.00995" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M9.0099 9.01001C8.2799 9.01001 7.61991 8.62 7.15991 8" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M2 15C2 18.87 5.13 22 9 22L7.95 20.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        <path d="M22 9C22 5.13 18.87 2 15 2L16.05 3.75" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
-                                </div>
-                                <div className="w-0 group-hover:w-10 mb-1 overflow-hidden transition-all duration-500 ease-out">
-                                    <span className="text-white text-xs font-medium whitespace-nowrap pr-2">EN</span>
-                                </div>
-                            </div>
-                        </div>
+                        <LanguageSwitcher currentLocale={currentLocale} variant="header" />
                     </div>
                 </div>
             </header>

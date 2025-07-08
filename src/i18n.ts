@@ -2,8 +2,19 @@ import {notFound} from 'next/navigation';
 import {getRequestConfig} from 'next-intl/server';
 import { headers } from 'next/headers';
 
+// Import messages directly
+import en from '../messages/en.json';
+import vi from '../messages/vi.json';
+import de from '../messages/de.json';
+
 // Can be imported from a shared config
-const locales = ['en', 'vi'];
+const locales = ['en', 'vi', 'de'];
+
+const messages = {
+  en,
+  vi,
+  de
+};
 
 export default getRequestConfig(async () => {
   const locale = (await headers()).get('X-NEXT-INTL-LOCALE');
@@ -13,6 +24,6 @@ export default getRequestConfig(async () => {
 
   return {
     locale: locale as string,
-    messages: (await import(`../messages/${locale}.json`)).default
+    messages: messages[locale as keyof typeof messages]
   };
 });
